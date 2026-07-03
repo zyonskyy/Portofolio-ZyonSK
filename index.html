@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Portofolio | ZyonSK</title>
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+        <nav>
+            <h1>Portofolio ZyonSK</h1>
+            <ul>
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#projects">Proyek</a></li>
+                <li><a href="#about">Tentang Saya</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </nav>
+        <section id="home" class="hero">
+            <h1>Halo, <span>Saya ZyonSK</span></h1>
+            <p>Web Developer | Designer</p>
+            <button type="button" onclick="scrollToContact()">
+                Hubungi Saya
+            </button>
+        </section>
+
+        <section id="about" class="section">
+            <h2>Tentang Saya</h2>
+            <p>
+                Saya Adalah Seorang Ingin Menjadi Web Developer dan Web designer
+            </p>
+        </section>
+
+        <section id="projects" class="section">
+            <h2>Projects</h2>
+            <p>Beberapa Projects yang telah saya kerjakan</p>
+
+            <div class="project-list">
+                <div class="card">
+                    <h3>Proyek 1</h3>
+                    <p>Deskripsi singkat tentang proyek 1</p>
+                </div>
+
+                <div class="card">
+                    <h3>Proyek 2</h3>
+                    <p>Deskripsi singkat tentang proyek 2</p>
+                </div>
+
+                <div class="card">
+                    <h3>Proyek 3</h3>
+                    <p>Deskripsi singkat tentang proyek 3</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <h2>Kontak Saya</h2>
+            <form id="contactForm">
+                <input type="text" placeholder="masukkan nama" required />
+                <input type="email" placeholder="masukkan email" />
+                <textarea placeholder="tulis pesan anda" required></textarea>
+                <button type="submit">Kirim</button>
+            </form>
+            <p id="message" class="message"></p>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 ZyonSK. All rights reversed</p>
+        </footer>
+        <script src="./script.js"></script>
+    </body>
+</html>
