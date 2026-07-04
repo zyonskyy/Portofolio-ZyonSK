@@ -8,8 +8,17 @@
     </head>
     <body>
         <nav>
-            <h1>Portofolio ZyonSK</h1>
-            <ul>
+            <div class="nav-top">
+                <h2>Portofolio ZyonSK</h2>
+                <button
+                    class="menu-toggle"
+                    id="menuToggle"
+                    aria-label="Buka menu"
+                >
+                    ☰
+                </button>
+            </div>
+            <ul id="navMenu">
                 <li><a href="#home">Beranda</a></li>
                 <li><a href="#projects">Proyek</a></li>
                 <li><a href="#about">Tentang Saya</a></li>
@@ -17,24 +26,31 @@
             </ul>
         </nav>
         <section id="home" class="hero">
-            <h1>Halo, <span>Saya ZyonSK</span></h1>
-            <p>Web Developer | Designer</p>
-            <button type="button" onclick="scrollToContact()">
-                Hubungi Saya
-            </button>
+            <div class="hero-teks">
+                <h1>Halo, <span>Saya ZyonSK</span></h1>
+                <h2 class="judul-animasi">
+                    I'm a
+                    <span class="teks-ketik">Web Developer | Web Designer</span>
+                </h2>
+                <button type="button" onclick="scrollToContact()">
+                    Hubungi Saya
+                </button>
+            </div>
+            <img src="Foto.jpeg" alt="Foto Profil" class="profil-bulat" />
         </section>
 
         <section id="about" class="section">
-            <h2>Tentang Saya</h2>
-            <p>
-                Saya Adalah Seorang Ingin Menjadi Web Developer dan Web designer
-            </p>
+            <div class="about-list">
+                <h2>About Me</h2>
+                <p>
+                    Saya Adalah Seorang Ingin Menjadi Web Developer dan Web
+                    Designer
+                </p>
+            </div>
         </section>
 
         <section id="projects" class="section">
             <h2>Projects</h2>
-            <p>Beberapa Projects yang telah saya kerjakan</p>
-
             <div class="project-list">
                 <div class="card">
                     <h3>Proyek 1</h3>
@@ -56,9 +72,9 @@
         <section id="contact" class="section">
             <h2>Kontak Saya</h2>
             <form id="contactForm">
-                <input type="text" placeholder="masukkan nama" required />
-                <input type="email" placeholder="masukkan email" />
-                <textarea placeholder="tulis pesan anda" required></textarea>
+                <input type="text" placeholder="Masukkan Nama" required />
+                <input type="email" placeholder="Masukkan Email" />
+                <textarea placeholder="Tulis Pesan Anda" required></textarea>
                 <button type="submit">Kirim</button>
             </form>
             <p id="message" class="message"></p>
