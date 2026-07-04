@@ -5,43 +5,168 @@
     font-family: Arial, Sans-Serif;
 }
 
-body {
-    background: #f5f5f5;
-    color: #333;
-}
-
+/* --- MENU NAVIGASI --- */
 nav {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     padding: 15px 40px;
     background: #111;
+    color: #00d2ff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    /* Efek Kaca */
+    background: rgba(0, 0, 0, 0.4); /* Hitam dengan transparansi 40% */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Dukungan untuk browser Safari */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Garis batas tipis */
+}
+
+.nav-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
     color: white;
+    font-size: 1.6rem;
+    cursor: pointer;
 }
 
 nav ul {
     list-style: none;
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
+    margin: 0;
+    padding: 0;
 }
 
 nav a {
     color: white;
     text-decoration: none;
 }
+
+@media (max-width: 480px) {
+    .nav-top {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .menu-toggle {
+        display: block;
+    }
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    nav ul.active {
+        display: flex;
+    }
+}
+/* TAMPILAN UTAMA */
 .hero {
-    height: 90vh;
-    background: linear-gradient(135deg, #1e90ff, #00bcd4);
-    color: white;
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #111111, #0a0a0a);
+    color: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
+    padding: 120px 8% 50px 8%;
+    gap: 40px;
+}
+
+/* --- TAMPILAN LAPTOP / HP LANDSCAPE --- */
+@media (min-width: 768px) {
+    .hero {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .hero-teks {
+        order: 1;
+    }
+    .profil-bulat {
+        order: 2;
+    }
+}
+
+/* --- FOTO PROFIL --- */
+.hero-teks {
+    order: 2;
+}
+
+.profil-bulat {
+    order: 1;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #06b6d4;
+    animation: nyala-biru 2s infinite alternate;
+}
+/* --- KUNCI ANIMASI GLOWING BIRU --- */
+@keyframes nyala-biru {
+    0% {
+        box-shadow:
+            0 0 10px rgba(6, 182, 212, 0.5),
+            0 0 20px rgba(6, 182, 212, 0.3);
+    }
+    100% {
+        box-shadow:
+            0 0 20px rgba(6, 182, 212, 0.8),
+            0 0 40px rgba(6, 182, 212, 0.6),
+            0 0 60px rgba(6, 182, 212, 0.4);
+    }
 }
 
 .hero span {
-    color: gold;
+    color: #00d2ff;
+}
+
+.judul-animasi {
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+.teks-ketik {
+    color: #00d2ff;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid #00d2ff;
+    vertical-align: bottom;
+    width: 25ch;
+    animation:
+        ngetik 3s steps(25) infinite alternate,
+        kedip 0.7s step-end infinite alternate;
+}
+
+@keyframes ngetik {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 25ch;
+    }
+}
+
+@keyframes kedip {
+    50% {
+        border-color: transparent;
+    }
 }
 
 .hero button {
@@ -53,18 +178,30 @@ nav a {
     color: #1e90ff;
     font-weight: bold;
 }
-
+/* TENTANG SAYA */
 .section {
+    background: linear-gradient(135deg, #111111, #0a0a0a);
     padding: 60px 40px;
     max-width: 1000px;
     margin: auto;
 }
 
+.about-list {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 3px solid #06b6d4;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #9ca3af;
+}
+
 .section h2 {
     text-align: center;
     margin-bottom: 20px;
+    color: #00d2ff;
 }
 
+/* ----PROYEK---- */
 .project-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -72,12 +209,15 @@ nav a {
 }
 
 .card {
-    background: white;
+    background: #1A1A1A;
     padding: 20px;
     border-radius: 8px;
+    border-left: 3px solid #06b6d4;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #9CA3AF;
 }
 
+/* KONTAK SAYA */
 form {
     display: flex;
     flex-direction: column;
@@ -86,25 +226,45 @@ form {
     margin: auto;
 }
 
-input,
-textarea {
-    padding: 10px;
+#contactForm input, 
+#contactForm textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #1A1A1A;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: #FFFFFF;
 }
 
-button {
-    background: #1e90ff;
+#contactForm input::placeholder, 
+#contactForm textarea::placeholder {
+    color: #9CA3AF;
+}
+
+#contactForm input:focus, 
+#contactForm textarea:focus {
+    outline: none;
+    border: 1px solid #06B6D4;
+}
+
+#contactForm button {
+    background-color: #06B6D4;
     color: white;
     border: none;
-    padding: 10px;
+    padding: 15px;
+    border-radius: 8px;
     cursor: pointer;
+    font-weight: bold;
 }
 
 .message {
-  text-align: center;
-  margin-top: 10px;
-  font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #9CA3AF;
 }
-
+/* FOOTER */
 footer {
     text-align: center;
     padding: 15px;
@@ -112,6 +272,9 @@ footer {
     color: white;
 }
 
-html {
+html,
+body {
     scroll-behavior: smooth;
+    max-width: 100%;
+    overflow-x: hidden;
 }
